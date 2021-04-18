@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Es 3 Ulteriori esercizi</title>
+    <script type="text/javascript">
+        titolo="";
+        ingr="";
+        preparazione="";
+        function ingredienti(){
+            titolo=title.titolo.value;
+            str="<form name='elementi'> <input type='text' name='ric' placeholder='inserisci ingrediente'>&nbsp";
+            str+="<input type='button' value='Aggiungi ingrediente' onclick='aggiungi()'> </form>";
+            document.write(str);
+        }
+        function aggiungi(){
+            ingr+="-"+elementi.ric.value+";<br>";
+            str="<form name='elementi'> <input type='text' name='ric' placeholder='inserisci ingrediente'>&nbsp";
+            str+="<input type='button' value='Aggiungi ingrediente' onclick='aggiungi()'>&nbsp";
+            str+="<input type='button' value='inserisci fasi preparazione' onclick='prep()'> </form>";
+            document.open();
+            document.write(str);
+        }
+        function prep(){
+            if(elementi.ric.value!="")
+                ingr+="-"+elementi.ric.value+".<br>";
+            str="<form name='prepar'> <input type='text' name='fasi' placeholder='inserisci procedimento'>&nbsp";
+            str+="<input type='button' value='aggiungi fase preparazione' onclick='insPrep()'> </form>";
+            document.open(); 
+            document.write(str); 
+        }
+        function insPrep(){
+            preparazione+="-"+prepar.fasi.value+";<br>";
+            str="<form name='prepar'> <input type='text' name='fasi' placeholder='inserisci procedimento'>&nbsp";
+            str+="<input type='button' value='aggiungi fase preparazione' onclick='insPrep()'>&nbsp";
+            str+="<input type='button' value='salva' onclick='salva()'> </form>";
+            document.open();
+            document.write(str);
+        }
+        function salva(){
+            if(prepar.fasi.value!="")
+                preparazione+="-"+prepar.fasi.value+".<br>";
+            document.open();
+            str="Titolo: <br>-"+titolo+".<br><br> Ingredienti: <br>"+ingr+"<br> Fasi preparazione: <br>"+preparazione;
+            document.write(str);
+        }
+    </script>
+</head>
+<body>
+    <form name="title">
+        <input type="text" name="titolo" placeholder="Inserisci il titolo della ricetta">&nbsp
+        <input type="button" value="Inserisci ingredienti" onclick="ingredienti()">
+    </form>
+</body>
+</html>
